@@ -6,14 +6,14 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-green-700 text-white py-10">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Brand / About */}
+       
         <div>
           <img src="/images/logo.avif" alt="Harvest Nexus Logo" className="h-12 mb-4" />
           <p className="text-sm leading-relaxed mb-4">
             Connecting farmers and buyers, ensuring fresh produce, and reducing waste.
           </p>
 
-          {/* Newsletter */}
+         
           <div>
             <h3 className="font-semibold mb-2">Join our newsletter</h3>
             <div className="flex">
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Quick Links */}
+      
         <div>
           <h3 className="font-semibold mb-3">Quick links</h3>
           <ul className="space-y-2 text-sm">
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Legal */}
+       
         <div>
           <h3 className="font-semibold mb-3">Legal</h3>
           <ul className="space-y-2 text-sm">
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Contact */}
+       
         <div>
           <h3 className="font-semibold mb-3">Contact</h3>
           <ul className="space-y-3 text-sm">
@@ -74,7 +74,6 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-green-600 mt-8 pt-4 text-center text-sm">
         © 2025 <span className="font-semibold">Harvest Nexus</span> | All Rights Reserved
       </div>
