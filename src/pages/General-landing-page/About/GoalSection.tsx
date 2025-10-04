@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle, TrendingDown, Users, Truck } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const GoalSection: React.FC = () => {
   const goals = [
@@ -15,7 +15,7 @@ const GoalSection: React.FC = () => {
       value: 60,
       barColor: "#208836",
       circleColor: "#C7EBCF4D",
-      icon: TrendingDown,
+      vectorImage: "/images/Vector3.png",
       iconColor: "#208836"
     },
     {
@@ -23,7 +23,7 @@ const GoalSection: React.FC = () => {
       value: 40,
       barColor: "#8B4513",
       circleColor: "#EFE7DF",
-      icon: Users,
+      vectorImage: "/images/Vector2.png",
       iconColor: "#8B4513"
     },
     {
@@ -31,7 +31,7 @@ const GoalSection: React.FC = () => {
       value: 55,
       barColor: "#1A1A1A",
       circleColor: "#F5F5F5",
-      icon: Truck,
+      vectorImage: "/images/Group.png",
       iconColor: "#1A1A1A"
     },
   ];
@@ -78,48 +78,60 @@ const GoalSection: React.FC = () => {
             <div
               className="absolute bg-white/95 shadow-xl backdrop-blur-sm border border-gray-100"
               style={{
-                width: '400px',
-                height: '300px',
+                width: '450px',
+                height: '350px',
                 borderRadius: '28px',
                 opacity: 1,
                 top: '233px',
                 gap: '28px',
                 borderWidth: '1px',
-                padding: '16px',
+                padding: '20px',
                 left: '-50px'
               }}
             >
-              {stats.map((stat, i) => {
-                const IconComponent = stat.icon;
-                return (
-                  <div key={i} className="mb-6 last:mb-0">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: stat.circleColor }}
-                      >
-                        <IconComponent
-                          className="w-6 h-6"
-                          style={{ color: stat.iconColor }}
-                        />
-                      </div>
-                      <div className="flex justify-between items-center flex-1">
-                        <span className="text-base font-medium text-gray-800">{stat.label}</span>
-                        <span className="text-base font-semibold text-gray-900">{stat.value}%</span>
+
+              <div className="pt-8">
+                {stats.map((stat, i) => {
+                  return (
+                    <div key={i} className="mb-7 last:mb-0">
+                      <div className="flex items-start gap-4">
+
+                        <div
+                          className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center"
+                          style={{ backgroundColor: stat.circleColor }}
+                        >
+                          <img
+                            src={stat.vectorImage}
+                            alt={stat.label}
+                            className="w-8 h-8 object-contain"
+                            style={{ color: stat.iconColor }}
+                          />
+                        </div>
+
+
+                        <div className="flex-1">
+
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-base font-medium text-gray-600">{stat.label}</span>
+                            <span className="text-base  text-gray-900 ml-4">{stat.value}%</span>
+                          </div>
+
+
+                          <div className="w-4/5 bg-gray-200 rounded-full h-2.5">
+                            <div
+                              className="h-2.5 rounded-full transition-all duration-1000 ease-out"
+                              style={{
+                                width: `${stat.value}%`,
+                                backgroundColor: stat.barColor
+                              }}
+                            ></div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="w-2/3 bg-gray-200 rounded-full h-2.5 ml-14 mt-3">
-                      <div
-                        className="h-2.5 rounded-full transition-all duration-1000 ease-out"
-                        style={{
-                          width: `${stat.value}%`,
-                          backgroundColor: stat.barColor
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
