@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
               </Link>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg mt-1 w-56 rounded-md border border-gray-200 z-20">
                 <Link
-                  to="/service1"
+                  to="/services"
                   className="block text-gray-700 hover:text-green-600 px-4 py-3"
                 >
                   Logistics
