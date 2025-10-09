@@ -51,7 +51,7 @@ const FAQ: React.FC = () => {
             onClick={() => toggleFAQ(index)}
             className="flex justify-between items-center w-full p-4 text-left"
           >
-            <span className="font-medium text-gray-800 text-nunito ">{item.question}</span>
+            <span className="font-medium text-gray-800 text-nunito text-3xl">{item.question}</span>
             <motion.div
               animate={{ rotate: activeIndex === index ? 180 : 0 }}
               transition={{ duration: 0.3 }}
@@ -61,7 +61,7 @@ const FAQ: React.FC = () => {
           </button>
 
 
-          {/* Animated Answer */}
+          {/*Answer */}
           <AnimatePresence initial={false}>
             {activeIndex === index && (
               <motion.div
@@ -72,7 +72,7 @@ const FAQ: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="p-4 pt-0 text-gray-600 text-sm text-nunito">
+                <div className="p-4 pt-0 text-gray-600 text-sm text-nunito text-xl">
                   {item.answer}
                 </div>
                 <br />
