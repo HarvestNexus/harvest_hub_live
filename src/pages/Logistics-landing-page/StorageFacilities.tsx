@@ -57,7 +57,10 @@ const storageFAQs = [
 		<>
 
 		<div className=''>
-
+      <div className="absolute top-0 z-10 sticky">
+            <Navbar />
+              
+            </div>
 			    <div className="relative md:h-screen flex items-center justify-center text-center rounded">
 
       <div 
@@ -71,10 +74,7 @@ const storageFAQs = [
 
         {/* Dark Overlay for Readability */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
-<div className="absolute top-0 z-10 sticky">
-            <Navbar />
-              
-            </div>
+
       </div>
 
 
@@ -136,10 +136,10 @@ const storageFAQs = [
       </div>
 
     </section>
-    <section className="grid grid-cols-1 md:grid-cols-2 items-center justify-center mx-auto font-nunito my-12">
+    <section className="grid grid-cols-1 md:grid-cols-2 items-center justify-center mx-auto font-nunito my-12 p-3">
       {workflow_steps.map((item)=>(
 
-          <div key={item.id} className="flex flex-rows  w-full lg:justify-center gap-4 my-4 text-nunito">
+          <div key={item.id} className="flex flex-rows rounded-xl transition hover:shadow-lg w-full lg:justify-center gap-4 my-4 text-nunito p-5">
             <div className="border w-16 h-16 border-primary p-8 flex flex-col items-center justify-center  rounded-full text-3xl text-primary font-bold">{item.id}</div>
             <div className="flex  flex-col gap-4 max-w-xs">
               <h1 className="text-xl md:text-3xl text-dark-700 font-bold">{item.title}</h1>

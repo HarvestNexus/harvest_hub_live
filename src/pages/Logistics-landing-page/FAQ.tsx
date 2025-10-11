@@ -74,6 +74,7 @@ const FAQ: React.FC<FAQProps> = ({ title = "FAQs", description, items }) => {
               <ChevronDown className="w-7 h-7 text-white-300 bg-primary text-white rounded-full" />
             </motion.div>
           </button>
+          <hr className="mx-3 py-2 text-bold" />
 
           {/* Answer */}
           <AnimatePresence initial={false}>
