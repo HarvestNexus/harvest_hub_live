@@ -3,7 +3,6 @@ import { CheckCircle } from "lucide-react";
 
 const GoalSection: React.FC = () => {
   const goals = [
-    "Supporting both farmers and buyers with digital tools that simplify trade, track orders and secure payments.",
     "Providing a transparent marketplace where farmers can sell directly to buyers at fair prices.",
     "Offering seamless logistics that ensure timely transportation of produce.",
     "Connecting farmers to affordable storage facilities to preserve crops.",
@@ -42,6 +41,9 @@ const GoalSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 max-w-6xl">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Goal</h2>
+            <h2 className="text-lg md:text-md text-gray-800 mb-4"> Supporting both farmers and buyers with digital tools that 
+              simplify trade, 
+              track orders and secure payments."</h2>
             <ul className="space-y-5">
               {goals.map((goal, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -49,10 +51,10 @@ const GoalSection: React.FC = () => {
                   <p
                     className="text-gray-700"
                     style={{
-                      fontFamily: 'Nunito Sans',
+          
                       fontWeight: 400,
                       fontStyle: 'normal',
-                      fontSize: '22px',
+                      fontSize: '24px',
                       lineHeight: '160%',
                       letterSpacing: '0%'
                     }}

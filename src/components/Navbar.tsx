@@ -25,6 +25,8 @@ const Navbar: React.FC = () => {
               className="h-10 w-auto"
             />
           </Link>
+
+          {/* Desktop Links */}
           <div className="hidden md:flex space-x-6 text-sm font-medium">
             <Link
               to="/"
@@ -105,7 +107,7 @@ const Navbar: React.FC = () => {
               </Link>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg mt-1 w-56 rounded-lg border border-gray-200 z-20 overflow-hidden">
                 <Link
-                  to="/resource1"
+                  to="/faq"
                   className="block text-gray-700 hover:text-green-600 px-8 py-4 transition-all duration-200 relative group/item"
                 >
                   <span className="relative z-10">FAQS</span>
@@ -217,7 +219,7 @@ const Navbar: React.FC = () => {
             {openDropdown === "resources" && (
               <div className="bg-gray-50">
                 <Link
-                  to="/resource1"
+                  to="/faq"
                   className="block text-gray-700 hover:text-green-600 py-4 transition-all duration-200 relative group/item"
                   onClick={toggleMenu}
                 >

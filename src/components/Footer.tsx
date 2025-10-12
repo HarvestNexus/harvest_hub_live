@@ -6,30 +6,30 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-green-700 text-white py-10">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
-       
+
         <div>
           <img src="/images/logo.avif" alt="Harvest Nexus Logo" className="h-12 mb-4" />
           <p className="text-sm leading-relaxed mb-4">
             Connecting farmers and buyers, ensuring fresh produce, and reducing waste.
           </p>
 
-         
+
           <div>
             <h3 className="font-semibold mb-2">Join our newsletter</h3>
-            <div className="flex">
+            <div className="flex gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-3 py-2 w-full rounded-l-md border border-gray-200 text-gray-900 focus:outline-none"
+                className="flex-1 px-4 py-5 rounded-md border border-gray-200 text-gray-900 bg-transparent placeholder-gray-300 focus:outline-none focus:border-white text-base"
               />
-              <button className="bg-white text-green-700 px-4 rounded-r-md font-medium hover:bg-gray-100">
+              <button className="bg-white text-green-700 px-4 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200 text-sm whitespace-nowrap h-auto">
                 Subscribe
               </button>
             </div>
           </div>
         </div>
 
-      
+
         <div>
           <h3 className="font-semibold mb-3">Quick links</h3>
           <ul className="space-y-2 text-sm">
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-       
+
         <div>
           <h3 className="font-semibold mb-3">Legal</h3>
           <ul className="space-y-2 text-sm">
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-       
+
         <div>
           <h3 className="font-semibold mb-3">Contact</h3>
           <ul className="space-y-3 text-sm">

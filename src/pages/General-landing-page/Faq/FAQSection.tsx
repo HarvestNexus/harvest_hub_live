@@ -10,7 +10,7 @@ const faqs = [
     {
         question: "Is Harvest Nexus free to use?",
         answer:
-            "Yes, it’s completely free to get started. You can create an account, explore the platform, and access core services without any cost.",
+            "Yes, it's completely free to get started. You can create an account, explore the platform, and access core services without any cost.",
     },
     {
         question: "How secure is the platform?",
@@ -20,7 +20,7 @@ const faqs = [
     {
         question: "How do I create an account?",
         answer:
-            "Click on ‘Sign Up,’ provide your details, and verify your email to start managing your farm or marketplace directly.",
+            "Click on 'Sign Up,' provide your details, and verify your email to start managing your farm or marketplace directly.",
     },
 ];
 
@@ -41,25 +41,30 @@ export default function FAQSection() {
             </div>
 
             <div className="text-center mb-14">
-                <h2
-                    className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
-                >
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                     Got Questions?
                     <br />
-                    We’ve Got Answers
+                    We've Got Answers
                 </h2>
                 <p className="text-gray-600 text-base max-w-xl mx-auto">
                     Clear answers to help you get started, store, sell, and buy with ease.
                 </p>
             </div>
-            <div className="max-w-3xl mx-auto divide-y divide-gray-200">
+
+            <div className="max-w-6xl mx-auto">
                 {faqs.map((faq, index) => {
                     const isOpen = openIndex === index;
                     return (
-                        <div key={index} className="bg-transparent transition-all duration-500 ease-in-out">
+                        <div
+                            key={index}
+                            className={`transition-all duration-500 ease-in-out ${isOpen
+                                    ? "bg-white border rounded-md shadow-sm my-4"
+                                    : "bg-transparent border-b border-gray-200"
+                                }`}
+                        >
                             <button
                                 onClick={() => toggleFAQ(index)}
-                                className="w-full flex justify-between items-center text-left py-6 focus:outline-none"
+                                className="w-full flex justify-between items-center text-left py-6 px-6 focus:outline-none"
                             >
                                 <span className="text-lg font-semibold text-gray-900">
                                     {faq.question}
@@ -74,8 +79,15 @@ export default function FAQSection() {
                                     {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                 </span>
                             </button>
+
+                            {isOpen && (
+                                <div className="px-6">
+                                    <div className="border-t border-gray-400"></div>
+                                </div>
+                            )}
+
                             <div
-                                className={`px-1 pb-6 text-gray-700 text-base overflow-hidden transition-all duration-700 ease-in-out ${isOpen ? "max-h-[240px] opacity-100 pt-2" : "max-h-0 opacity-0"
+                                className={`px-6 pb-6 text-gray-700 text-base overflow-hidden transition-all duration-700 ease-in-out ${isOpen ? "max-h-[240px] opacity-100 pt-4" : "max-h-0 opacity-0"
                                     }`}
                             >
                                 <p className="transition-opacity duration-700 ease-in-out">
