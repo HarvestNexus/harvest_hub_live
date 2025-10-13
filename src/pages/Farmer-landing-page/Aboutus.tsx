@@ -1,5 +1,3 @@
-
-
 type Info = {
   id: number;
   text: string;
@@ -46,48 +44,49 @@ export default function AboutSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
-        {/* Left: Info Cards */}
-        <div className="space-y-6">
-          {infos.map((info) => (
-            <div
-              key={info.id}
-              className="flex items-start p-6 transition-shadow duration-300 bg-white border border-gray-100 shadow-md rounded-2xl hover:shadow-lg"
-            >
-              <div className="flex-shrink-0 mr-4">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
-                  <svg
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden
-                  >
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                    <path
-                      d="M12.5 7v2.5h1.5v1H12.5V17h-1.5v-6.5H9.5v-1h1.5V7h1.5z"
-                      fill="#fff"
-                      opacity="0.95"
-                    />
-                  </svg>
+      <div className="relative">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
+          {/* Left: Info Cards */}
+          <div className="relative z-10 space-y-6 md:pr-8">
+            {infos.map((info) => (
+              <div
+                key={info.id}
+                className="flex items-start p-6 transition-all duration-300 bg-white border border-gray-100 shadow-md rounded-2xl hover:shadow-lg hover:-translate-y-1 md:-mr-[30%]"
+              >
+                <div className="flex-shrink-0 mr-4">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                      <path
+                        d="M12.5 7v2.5h1.5v1H12.5V17h-1.5v-6.5H9.5v-1h1.5V7h1.5z"
+                        fill="#fff"
+                        opacity="0.95"
+                      />
+                    </svg>
+                  </div>
                 </div>
+                <p className="text-base font-normal leading-relaxed text-gray-700">
+                  {info.text}
+                </p>
               </div>
-              <p className="text-base font-normal leading-relaxed text-gray-700">
-                {info.text}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Right: Image */}
-        <div className="flex justify-center md:justify-end">
-          <div className="w-full max-w-md overflow-hidden border border-gray-100 shadow-lg md:max-w-xl rounded-3xl">
-           
-            <img
-              src={'./images/farmerabt.jpeg'}
-              alt="farm produce"
-              className="object-cover w-full h-64 sm:h-72 md:h-96"
-            />
+          {/* Right: Image */}
+          <div className="relative z-0 flex justify-center md:justify-start">
+            <div className="w-full max-w-md overflow-hidden border border-gray-100 shadow-lg md:max-w-xl rounded-3xl">
+              <img
+                src={'./images/farmerabt.jpeg'}
+                alt="farm produce"
+                className="object-cover w-full h-64 sm:h-72 md:h-96"
+              />
+            </div>
           </div>
         </div>
       </div>

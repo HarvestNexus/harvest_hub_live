@@ -1,4 +1,4 @@
-// import  { type FC } from "react";
+import { type FC } from "react";
 
 interface Service {
   id: number;
@@ -90,17 +90,16 @@ const services: Service[] = [
   },
 ];
 
-const Services= () => {
+const Services: FC = () => {
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 animate-fadeIn">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:items-center">
         <div className="w-full rounded-3xl overflow-hidden shadow-lg border border-gray-100 transform transition duration-500 hover:scale-[1.02]">
           <img
-  src="/images/farmerourservice.jpeg"
-  alt="farmer services"
-  className="w-full h-80 md:h-[820px] object-cover"
-/>
-
+            src="/images/farmerourservice.jpeg"
+            alt="farmer services"
+            className="w-full h-80 md:h-[820px] object-cover"
+          />
         </div>
 
         <div className="animate-slideUp">
@@ -134,17 +133,23 @@ const Services= () => {
             {services.map((service) => (
               <div
                 key={service.id}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300"
+                className="group relative bg-white rounded-2xl p-6 border border-gray-100 shadow-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
               >
-                <div className="w-10 h-10 flex items-center justify-center bg-emerald-50 text-emerald-600 rounded-full mb-4">
-                  {service.icon}
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-500 to-emerald-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="w-10 h-10 flex items-center justify-center bg-emerald-50 text-emerald-600 rounded-full mb-4 group-hover:bg-white group-hover:text-emerald-600 transition-colors duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-gray-900 font-medium text-lg mb-1 group-hover:text-white transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-emerald-50 transition-colors duration-300">
+                    {service.desc}
+                  </p>
                 </div>
-                <h3 className="text-gray-900 font-medium text-lg mb-1">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {service.desc}
-                </p>
               </div>
             ))}
           </div>

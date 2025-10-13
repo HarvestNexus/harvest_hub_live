@@ -12,6 +12,7 @@ const FarmerHero = () => {
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center bg-green-600 text-white overflow-hidden">
+     
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between h-full">
         {/* Text Section */}
         <div className="max-w-xl text-center md:text-left space-y-5">

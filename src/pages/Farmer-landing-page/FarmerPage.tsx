@@ -7,6 +7,7 @@ import HowItWorks from "./Howitworks";
 import StorageFacility from "./Storagefacility";
 import FAQ from "./FAQ";
 import FarmerCTA from "./FarmerCTA";
+import Footer from "../General-landing-page/Footer"
 
 const FarmerPage: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const FarmerPage: React.FC = () => {
       <StorageFacility/>
       <FarmerCTA/>
       <FAQ />
+      <Footer/>
       
     </div>
   );
