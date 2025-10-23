@@ -1,5 +1,8 @@
 import Navbar from "../../components/Navbar"
 import FAQ from "./FAQ"
+import Footer from "../../components/Footer"
+
+
 
 interface whatWeOfferList {
   id: number;
@@ -22,23 +25,23 @@ export  const StorageFacilities:React.FC = ()=>{
   const workflow_steps = [
   {
     id: 1, 
-    title: "Sign Up",
-    description: "Register your company or as an individual logistics provider.",
+    title: "Register Your Facility",
+    description: "Create an account and add details of your storage center.",
   },
   {
     id: 2,
     title: "Get Verified",
-    description: "We confirm your documents and logistics capacity.",
+    description: "We review your facility details for authenticity and standards.",
   },
   {
     id: 3,
-    title: "Receive Request",
-    description: "Farmers and buyers book your services.",
+    title: "Receive Bookings",
+    description: "Farmers nearby can book your facility instantly.",
   },
   {
     id: 4,
-    title: "Deliver and Earn",
-    description: "Complete jobs, get rated, and receive payments.",
+    title: "Earn More",
+    description: "Accept bookings, fill your capacity, and get paid reliably.",
   },
 ];
 
@@ -55,16 +58,16 @@ const storageFAQs = [
 	return (
 
 		<>
-
-		<div className=''>
-      <div className="absolute top-0 z-10 sticky">
-            <Navbar />
-              
+<div className="absolute top-0 sticky z-10 ">
+              <Navbar />
             </div>
-			    <div className="relative md:h-screen flex items-center justify-center text-center rounded">
+		<div className='relative'>
+
+
+			    <div className="relative h-screen flex items-center justify-center text-center rounded">
 
       <div 
-        className="absolute inset-0 bg-cover bg-center z-1" 
+        className="absolute inset-0 bg-cover bg-center z-1 top-0" 
         style={{ 
           backgroundImage: `url('./images/storageImages/storage_hero_img.avif')`
           // Background image of shipping containers and logistics area
@@ -72,21 +75,23 @@ const storageFAQs = [
         aria-label="Background image of logistics yard with shipping containers"
       >
 
+
+
         {/* Dark Overlay for Readability */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
-
+            
       </div>
 
 
       {/* Content */}
       <div className="relative text-white px-4 gap-4 py-3 ">
         {/* Main Heading */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-bold leading-snug">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-bold ">
           Maximize Your Storage  <br className="hidden md:flex" /> Facility’s Potential
         </h1>
         
         {/* Subtext */}
-        <p className="mt-4 font-nunito text-lg sm:text-xl max-w-xl mx-auto text-gray-300">
+        <p className="mt-4 font-nunito   max-w-xl mx-auto text-gray-300">
           List your storage spaces on our platform and connect with farmers looking for reliable and affordable storage.
         </p>
 
@@ -139,7 +144,7 @@ const storageFAQs = [
     <section className="grid grid-cols-1 md:grid-cols-2 items-center justify-center mx-auto font-nunito my-12 p-3">
       {workflow_steps.map((item)=>(
 
-          <div key={item.id} className="flex flex-rows rounded-xl transition hover:shadow-lg w-full lg:justify-center gap-4 my-4 text-nunito p-5">
+          <div key={item.id} className="flex flex-rows rounded-xl transition:all hover:shadow-lg w-full lg:justify-center gap-4 my-4 text-nunito p-5">
             <div className="border w-16 h-16 border-primary p-8 flex flex-col items-center justify-center  rounded-full text-3xl text-primary font-bold">{item.id}</div>
             <div className="flex  flex-col gap-4 max-w-xs">
               <h1 className="text-xl md:text-3xl text-dark-700 font-bold">{item.title}</h1>
@@ -166,6 +171,7 @@ const storageFAQs = [
         <button className="bg-primary font-nunito rounded-xl text-white text-center p-3">Join as a Logistics Partner</button>
       </div>
     </section>
+    <Footer />
 		</div>
 		</>
 

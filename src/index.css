@@ -3,7 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/*<<<<<<< HEAD*/
     
-*{
-	/*outline: 1px solid red;*/
+
+body {
+  font-family: 'Inter', 'sans-serif';
+
 }

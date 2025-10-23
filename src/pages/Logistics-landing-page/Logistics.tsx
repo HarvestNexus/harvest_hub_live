@@ -1,5 +1,8 @@
 import Navbar from "../../components/Navbar"
 import FAQ from "./FAQ"
+import Footer from "../../components/Footer"
+
+
 
 interface whatWeOfferList {
   id: number;
@@ -21,6 +24,7 @@ const SVG = ()=>(
     )
 
 export  const Logistics:React.FC = ()=>{
+
 	const whatWeOffer: whatWeOfferList[] = [
     {id: 1, img: "./images/logisticsImages/l-img1.avif", title: "Steady Delivery Requests", desc: "Get consistent jobs from farmers and buyers." },
     {id: 2, img: "./images/logisticsImages/l-img2.avif", title: "Timely Payments", desc: "Secure, fast payments for every completed delivery." },
@@ -62,18 +66,21 @@ const FAQs = [
 	return (
 
 		<>
-<div className="absolute top-0 z-10 sticky">
+     <div className="absolute top-0 z-10 sticky">
             <Navbar />
-              
+
             </div>
-		<div className=''>
 
+   
+        
+		<div className='absolute top-0'>
 
-			    <div className="relative md:h-screen flex items-center justify-center text-center rounded  pt-9 md:pt-1">
+      			    
+      <div className="relative top-0 h-screen flex items-center justify-center text-center rounded  pt-9 md:pt-1">
 
 
       <div 
-        className="absolute inset-0 bg-cover bg-center z-1" 
+        className="absolute inset-0 bg-cover bg-center z-1 top-0" 
         style={{ 
           backgroundImage: `url('./images/logisticsImages/l-hero.avif')`
           // Background image of shipping containers and logistics area
@@ -96,14 +103,14 @@ const FAQs = [
 
 
       {/* Content */}
-      <div className="relative text-white px-4  md:gap-4 py-3 ">
+      <div className="relative text-white px-4  md:gap-4  ">
         {/* Main Heading */}
-        <h1 className="text-2xl lg:text-6xl font-extrabold font-bold">
+        <h1 className="text-4xl md:text-6xl font-extrabold font-bold">
           Grow Your Logistics <br className="hidden md:flex"/> Business with Us
         </h1>
         
         {/* Subtext */}
-        <p className="mt-4 font-nunito text-sm md:text-lg max-w-xl mx-auto text-gray-300">
+        <p className="mt-4 font-nunito text-lg md:text-xl max-w-xl mx-auto text-gray-300">
           Join our platform to connect with farmers and food buyers who need reliable, affordable delivery every day.
         </p>
 
@@ -115,7 +122,7 @@ const FAQs = [
 
     </div>
     {/*section two*/}
-    <section className="flex flex-col items-center justify-center my-12 font-nunito p-3 ">
+    <section className="flex flex-col items-center justify-center my-12 font-nunito px-6 ">
       <div className="flex flex-col gap-4">
         <div className="relative flex gap-2 items-center justify-center bg-brand-fadeGreen w-fit mx-auto px-2 py-3 rounded-3xl">
           
@@ -123,7 +130,7 @@ const FAQs = [
 <span className="text-brand-dark font-semibold font-nunito  md:text-xl">Key Benefits</span>
         </div>
         <h2 className="text-center text-3xl">Why Harvest Nexus Works for You</h2>
-        <p className="md:text-xl text-[#646464] text-center max-w-xl ">More than just deliveries, we give you the tools, network, and opportunities to scale your logistics business</p>
+        <p className="md:text-xl text-lg text-[#646464] text-center max-w-xl ">More than just deliveries, we give you the tools, network, and opportunities to scale your logistics business</p>
       </div>
 
       {/*Logistis item arrrays*/}
@@ -150,7 +157,7 @@ const FAQs = [
           <SVG /><span className="text-secondary-700 font-nunito text md:text-xl">How It Works</span>
         </div>
         <h2 className="text-center text-3xl text-nunito">Start Delivering in No Time</h2>
-        <p className="md:text-xl text-[#646464] text-center max-w-xl text-nunito">Getting started takes just 4 simple steps, sign up, connect, deliver, and earn.</p>
+        <p className="md:text-xl text-lg text-[#646464] text-center max-w-xl text-nunito">Getting started takes just 4 simple steps, sign up, connect, deliver, and earn.</p>
       </div>
 
     </section>
@@ -184,6 +191,7 @@ const FAQs = [
         <button className="bg-primary font-nunito rounded-xl text-white text-center p-3">Join as a Logistics Partner</button>
       </div>
     </section>
+    <Footer />
 		</div>
 		</>
 

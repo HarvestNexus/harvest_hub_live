@@ -1,4 +1,4 @@
-// hooks/useTypewriter.ts
+
 import { useEffect, useState } from "react";
 
 export function useTypewriter(text: string, speed = 80) {
