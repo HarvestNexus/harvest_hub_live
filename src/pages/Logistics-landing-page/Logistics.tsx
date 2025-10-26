@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar"
 import FAQ from "./FAQ"
+import Footer from "../../components/Footer";
 
 interface whatWeOfferList {
   id: number;
@@ -185,6 +186,7 @@ const FAQs = [
       </div>
     </section>
 		</div>
+      <Footer />
 		</>
 
 

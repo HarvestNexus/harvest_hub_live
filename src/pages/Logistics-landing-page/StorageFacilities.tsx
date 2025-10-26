@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar"
 import FAQ from "./FAQ"
+import Footer from "../../components/Footer";
 
 interface whatWeOfferList {
   id: number;
@@ -166,7 +167,9 @@ const storageFAQs = [
         <button className="bg-primary font-nunito rounded-xl text-white text-center p-3">Join as a Logistics Partner</button>
       </div>
     </section>
+   
 		</div>
+     <Footer />
 		</>
 
 
