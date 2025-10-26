@@ -58,10 +58,10 @@ const storageFAQs = [
 	return (
 
 		<>
-<div className="absolute top-0 sticky z-10 ">
-              <Navbar />
-            </div>
 		<div className='relative'>
+{/*<div className="absolute top-0 sticky z-10">*/}
+              {/*<Navbar />*/}
+            {/*</div>*/}
 
 
 			    <div className="relative h-screen flex items-center justify-center text-center rounded">
@@ -74,6 +74,10 @@ const storageFAQs = [
         }}
         aria-label="Background image of logistics yard with shipping containers"
       >
+<div className="absolute top-0 sticky z-10">
+
+              <Navbar />
+            </div>
 
 
 

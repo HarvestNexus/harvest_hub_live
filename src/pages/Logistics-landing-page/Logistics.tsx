@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar"
 import FAQ from "./FAQ"
 import Footer from "../../components/Footer"
-
+import Typewriter from "typewriter-effect";
 
 
 interface whatWeOfferList {
@@ -73,7 +73,7 @@ const FAQs = [
 
    
         
-		<div className='absolute top-0'>
+		<div className='absolute top-0 w-full'>
 
       			    
       <div className="relative top-0 h-screen flex items-center justify-center text-center rounded  pt-9 md:pt-1">
@@ -105,9 +105,39 @@ const FAQs = [
       {/* Content */}
       <div className="relative text-white px-4  md:gap-4  ">
         {/* Main Heading */}
-        <h1 className="text-4xl md:text-6xl font-extrabold font-bold">
-          Grow Your Logistics <br className="hidden md:flex"/> Business with Us
-        </h1>
+        <div className="text-4xl md:text-6xl font-extrabold font-bold">
+          <Typewriter 
+            options={{
+              strings: [
+                "Grow Your Logistics",
+              // "Business with Us",
+              ],
+              autoStart: true,
+              loop: true,
+              delay: 50,
+              deleteSpeed: 30,
+
+            }}
+
+
+          />
+           <Typewriter 
+            options={{
+              strings: [
+
+              "Business with Us",
+              ],
+              autoStart: true,
+              loop: true,
+              delay: 100,
+              deleteSpeed: 30,
+
+            }}
+
+
+          />
+          {/*Grow Your Logistics <br className="hidden md:flex"/> Business with Us*/}
+        </div>
         
         {/* Subtext */}
         <p className="mt-4 font-nunito text-lg md:text-xl max-w-xl mx-auto text-gray-300">
