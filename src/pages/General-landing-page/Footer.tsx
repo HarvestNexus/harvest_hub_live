@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           <h3 className="font-semibold mb-3">Quick links</h3>
           <ul className="space-y-2 text-sm">
             <li><Link to="/buyers" className="hover:underline">Buyers</Link></li>
-            <li><Link to="/farmers" className="hover:underline">Farmers</Link></li>
+            <li><Link to="/farmer" className="hover:underline">Farmers</Link></li>
             <li><Link to="/marketplace" className="hover:underline">Marketplace</Link></li>
             <li><Link to="/logistics" className="hover:underline">Logistics</Link></li>
             <li><Link to="/storage" className="hover:underline">Storage facilities</Link></li>

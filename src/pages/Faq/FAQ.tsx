@@ -1,6 +1,5 @@
 import FAQItem from "./FAQItem";
 
-
 export default function FAQ() {
     const buyerFAQs = [
         {
@@ -19,9 +18,9 @@ export default function FAQ() {
                 "Yes, you can add suppliers to your favorites list for easy access to their produce.",
         },
         {
-            question: "What if the produce I ordered isn’t available anymore?",
+            question: "What if the produce I ordered isn't available anymore?",
             answer:
-                "If an item becomes unavailable, you’ll be notified and can choose an alternative or request a refund.",
+                "If an item becomes unavailable, you'll be notified and can choose an alternative or request a refund.",
         },
     ];
 
@@ -42,7 +41,7 @@ export default function FAQ() {
                 "Use the Logistics tab to connect with trusted transporters available in your area.",
         },
         {
-            question: "What happens if my produce doesn’t sell quickly?",
+            question: "What happens if my produce doesn't sell quickly?",
             answer:
                 "You can adjust your prices, promote listings, or move items into storage for extended preservation.",
         },
@@ -94,43 +93,42 @@ export default function FAQ() {
         },
     ];
 
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
-
-
-        <section className="bg-[#F9F9F9] py-20 px-4 md:px-20 ">
-
-            <br />
-
-
-            <div className="flex items-center justify-center mb-6">
-                <span className="flex items-center gap-2 bg-green-100 text-green-700 font-medium px-4 py-2 rounded-full">
-                    <img src="/images/Vector.png" alt="icon" className="w-5 h-5" />
+        <section className="bg-[#F9F9F9] py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+                <span className="flex items-center gap-2 bg-green-100 text-green-700 font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-sm sm:text-base">
+                    <img src="/images/Vector.png" alt="icon" className="w-4 h-4 sm:w-5 sm:h-5" />
                     FAQs
                 </span>
             </div>
 
-
-            <div className="text-center mb-14">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <div className="text-center mb-10 sm:mb-14">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
                     Got Questions?
-                    <br /> We’ve Got Answers
+                    <br /> We've Got Answers
                 </h2>
-                <p className="text-gray-600 text-base max-w-xl mx-auto">
+                <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto px-4">
                     Clear answers to help you get started, store, sell, and buy with ease.
                 </p>
             </div>
 
-
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
-
-                <div className="md:w-1/6">
-                    <div className="border border--[#646464] rounded-lg bg-white">
-                        <ul className="flex md:flex-col text-sm md:text-base">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10">
+                <div className="lg:w-1/4">
+                    <div className="border border-gray-300 rounded-lg bg-white overflow-hidden">
+                        <ul className="flex lg:flex-col overflow-x-auto">
                             {["Buyer", "Farmer", "Logistics", "Storage Facility"].map(
                                 (item) => (
                                     <li
                                         key={item}
-                                        className="px-6 py-3 border-b md:border-b-0 md:border-b-gray-200 text-gray-700 hover:text-[#208836] cursor-pointer"
+                                        onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
+                                        className="flex-shrink-0 px-4 sm:px-6 py-3 border-b lg:border-b-0 border-gray-200 cursor-pointer text-sm sm:text-base whitespace-nowrap transition-colors text-gray-700 hover:text-[#208836]"
                                     >
                                         {item}
                                     </li>
@@ -140,31 +138,38 @@ export default function FAQ() {
                     </div>
                 </div>
 
+                <div className="lg:w-3/4">
+                    <div id="buyer" className="scroll-mt-20">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Buyer</h3>
+                        {buyerFAQs.map((faq, i) => (
+                            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+                        ))}
+                    </div>
 
-                <div className="md:w-3/4">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Buyer</h3>
-                    {buyerFAQs.map((faq, i) => (
-                        <FAQItem key={i} question={faq.question} answer={faq.answer} />
-                    ))}
+                    <div id="farmer" className="scroll-mt-20 mt-12 sm:mt-16">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Farmer</h3>
+                        {farmerFAQs.map((faq, i) => (
+                            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+                        ))}
+                    </div>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mt-16 mb-6">Farmer</h3>
-                    {farmerFAQs.map((faq, i) => (
-                        <FAQItem key={i} question={faq.question} answer={faq.answer} />
-                    ))}
+                    <div id="logistics" className="scroll-mt-20 mt-12 sm:mt-16">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+                            Logistics
+                        </h3>
+                        {logisticsFAQs.map((faq, i) => (
+                            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+                        ))}
+                    </div>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mt-16 mb-6">
-                        Logistics
-                    </h3>
-                    {logisticsFAQs.map((faq, i) => (
-                        <FAQItem key={i} question={faq.question} answer={faq.answer} />
-                    ))}
-
-                    <h3 className="text-2xl font-bold text-gray-900 mt-16 mb-6">
-                        Storage Facility
-                    </h3>
-                    {storageFAQs.map((faq, i) => (
-                        <FAQItem key={i} question={faq.question} answer={faq.answer} />
-                    ))}
+                    <div id="storage-facility" className="scroll-mt-20 mt-12 sm:mt-16">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+                            Storage Facility
+                        </h3>
+                        {storageFAQs.map((faq, i) => (
+                            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
