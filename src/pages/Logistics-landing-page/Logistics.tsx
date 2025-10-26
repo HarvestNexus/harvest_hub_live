@@ -145,9 +145,10 @@ const FAQs = [
         </p>
 
         {/* Call-to-Action Button */}
-        <button className=" mt-8 px-8 py-3 text-lg font-semibold bg-primary text-white rounded-lg shadow-2xl transition duration-300 transform hover:scale-105 bg-nexus-green-700 cursor-pointer">
-          Partner with Us
-        </button>
+         <button className="relative bg-green-600 text-white font-semibold mt-8 py-3 px-8 rounded-lg overflow-hidden group">
+              <span className="relative z-10">Partner with Us</span>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0 bg-[#AD895F] rounded-full group-hover:w-[300%] group-hover:h-[300%] transition-all duration-500 ease-out"></div>
+            </button>
       </div>
 
     </div>

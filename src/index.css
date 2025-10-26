@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /*<<<<<<< HEAD*/
     
 
@@ -10,6 +11,10 @@ body {
   font-family: 'Inter', 'sans-serif';
 
 }
-*{
-  /*outline: 1px solid red;*/
+
+
+
+body {
+  font-family: 'Inter', sans-serif;
+
 }

@@ -70,8 +70,13 @@ const Navbar: React.FC = () => {
               <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg mt-1 w-64 rounded-lg border border-gray-200 z-20 overflow-hidden">
                 <Link
 
+
                   to="/services"
                   className="block text-gray-700 hover:text-green-600 px-4 py-3"
+
+                  to="/service1"
+                  className="block text-gray-700 hover:text-green-600 px-8 py-4 transition-all duration-200 relative group/item"
+
                 >
                   <span className="relative z-10">Logistics</span>
                   <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 h-10 w-4/5 bg-green-50 rounded-lg scale-x-0 group-hover/item:scale-x-100 transition-transform duration-200 origin-center"></div>
