@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Links */}
+
           <div className="hidden md:flex space-x-6 text-sm font-medium">
             <Link
               to="/"
