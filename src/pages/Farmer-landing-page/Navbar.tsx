@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
               </button>
               <div className="absolute left-0 top-full hidden group-hover:block bg-white/95 backdrop-blur-md shadow-xl mt-2 w-40 rounded-xl border border-gray-200 overflow-hidden">
                 <Link
-                  to="/resource1"
+                  to="/faq"
                   className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
                 >
                   FAQs
@@ -229,7 +229,7 @@ const Navbar: React.FC = () => {
             </button>
             {openDropdown === "resources" && (
               <div className="pl-4 pb-2">
-                <Link to="/resource1" className="block py-2 text-gray-600 hover:text-green-600 transition-colors duration-200" onClick={closeMenu}>
+                <Link to="/faq" className="block py-2 text-gray-600 hover:text-green-600 transition-colors duration-200" onClick={closeMenu}>
                   FAQs
                 </Link>
               </div>
