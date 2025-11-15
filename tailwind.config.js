@@ -10,6 +10,7 @@ const config = {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         noto: ['"Noto Sans"', 'sans-serif'], // ✅ Added Noto Sans
+        nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
         primary: "#00a117",
@@ -20,6 +21,12 @@ const config = {
           dark: "#007a12",
         },
       },
+      boxShadow: {
+        subtle: "0px 4px 20px 0px #0000000D",
+      },
+      lineHeight: {
+      '160': '160%',
+      }
     },
   },
   plugins: [],

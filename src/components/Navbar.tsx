@@ -15,8 +15,8 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl shadow-md mx-auto max-w-6xl mt-4">
-      <div className="container mx-auto flex justify-between items-center px-6 py-2">
+    <nav className="bg-white/90 rounded-3xl shadow-subtle mx-auto max-w-6xl relative z-50">
+      <div className="container mx-auto flex justify-between items-center px-4 py-1.5">
         <div className="flex items-center space-x-8">
           <Link to="/" className="flex items-center">
             <img
