@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { CartItem, CartSectionProps } from "../../Interfaces/cart.interface";
 import cartImage from 'src/assets/cart-image.png';
-import {TrashIcon, Trash2Icon} from 'lucide-react';
+import {TrashIcon, Trash2Icon, Truck, TruckIcon} from 'lucide-react';
 
 export const CartSection: React.FC<CartSectionProps> = ({
   initialItems,
@@ -62,12 +62,12 @@ export const CartSection: React.FC<CartSectionProps> = ({
   };
 
   return (
-    <section className="font-nunito">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 font-nunito">
+    <section className="font-nunito bg-white mx-auto max-w-[88.89%]">
+        <div className="py-8 font-nunito">
             <h2 className="text-[#1A1A1A] text-[37px] font-bold leading-160">My Cart</h2>
             <p className="text-[22px] mt-4 leading-160 text-[#646464]">Review your selected items and proceed to checkout</p>
         </div>
-        <div className="font- max-w-6xl mx-auto px-4 md:px-6 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8 font-nunito"> 
+        <div className="w-full py-8 grid grid-cols-1 lg:grid-cols-3 gap-8 font-nunito"> 
             <div className="lg:col-span-2 font-nunito lg:p-5 border border-[#F5F5F5] rounded-[28px]">
                 <div className="flex items-center justify-between mb-4">
                     <h3 className="text-[#1A1A1A] text-[37px] font-bold leading-160">Cart Items ({items.length})</h3>
@@ -119,46 +119,53 @@ export const CartSection: React.FC<CartSectionProps> = ({
                 </div>                
             </div>
 
-            <aside className="bg-white rounded shadow p-6 h-max">
-                <div className="flex items-center justify-between">
-                    <h4 className="font-medium">Cart Summary</h4>
-                    <span className="text-sm text-gray-500">Items Total ({items.reduce((s, it) => s + it.qty, 0)})</span>
+            <aside className="rounded shadow p-6 h-max">
+                <div className="">
+                    <h4 className="text-[#1A1A1A] text-[37px] font-bold leading-160 text-center">Cart Summary</h4>
                 </div>
 
-                <div className="mt-4 space-y-2">
-                    <div className="flex justify-between text-gray-600">
-                        <span>Items Total</span>
-                        <span>₦{itemsTotal()}</span>
+                <div className="my-12 space-y-6">
+                   
+                    <div className="flex justify-between text-[#1A1A1A] text-[22px] font-normal leading-160">
+                        <span className="">Items Total ({items.reduce((s, it) => s + it.qty, 0)})</span>
+                        <span className="font-bold">₦{itemsTotal()}</span>
                     </div>
-                    <div className="flex justify-between text-gray-600">
+                    <div className="flex justify-between text-[#1A1A1A] text-[22px] font-normal leading-1600">
                         <span>Discount</span>
-                        <span>-₦{discount}</span>
+                        <span className="font-bold">-₦{discount}</span>
                     </div>
-                    <div className="flex justify-between font-semibold text-gray-800">
+                    <div className="flex justify-between text-[#1A1A1A] text-[22px] font-normal leading-160">
                         <span>Subtotal</span>
-                        <span>₦{subtotal}</span>
+                        <span className="font-bold">₦{subtotal}</span>
                     </div>
                 </div>
 
-                <button onClick={proceedToCheckout} className="mt-6 w-full px-4 py-2 bg-green-600 text-white rounded">
+                <button onClick={proceedToCheckout} className="w-full px-6 py-3 text-lg bg-[#208836] text-white rounded-[10px]">
                 Proceed to Checkout
                 </button>
 
-                <label className="mt-4 flex items-center gap-2 text-sm">
-                <input type="checkbox" checked={distanceDeliveryFee} onChange={e => setDistanceDeliveryFee(e.target.checked)} />
-                Distance determines delivery fee
-                </label>
+                <div className="mt-8 flex items-center gap-2 text-sm">
+                    <TruckIcon size={24} className="text-[#208836]"/>
+                    <span className="text-[#646464] text-[22px] font-normal ">
+                        Distance determines delivery fee
+                    </span>                
+                </div>
 
-                <div className="mt-6 text-center text-sm text-gray-500">
-                Need help? <button className="text-green-600 underline">Contact Support</button>
+                <hr className="my-6"/>
+
+                <div className="text-center text-sm text-gray-500">
+                    <span className="text-center block text-[#646464] text-[22px] font-normal leading-160">
+                        Need help?
+                    </span>
+                    <button className="text-[#208836] text-center text-[22px] font-normal leading-160">Contact Support</button>
                 </div>
             </aside>
         </div>
-        <div className="my-28 max-w-6xl mx-auto px-4 p-5 bg-white rounded border border-[#F5F5F5] text-center">
-            <h4 className="font-medium">Want to add more items?</h4>
-            <p className="text-sm text-gray-500 mt-1">Explore our fresh produce and add more items to your order</p>
+        <div className="my-28 text-center">
+            <h4 className="font-bold text-[37px] text-[#1A1A1A] leading">Want to add more items?</h4>
+            <p className="text-sm  my-8 text-[22px] leading-160 text-[#646464]">Explore our fresh produce and add more items to your order</p>
             <div className="mt-4">
-                <button onClick={continueShopping} className="inline-flex items-center gap-2 px-4 py-2 border rounded text-green-700">
+                <button onClick={continueShopping} className="inline-flex items-center gap-2 px-8 py-4 border-[0.75px] border-[#208836] rounded-[10px] text-[#208836]">
                 Continue Shopping →
                 </button>
             </div>
