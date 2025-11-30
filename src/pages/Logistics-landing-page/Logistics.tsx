@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar"
 import FAQ from "./FAQ"
 import Footer from "../../components/Footer"
 import Typewriter from "typewriter-effect";
+import CategoriesNav from "./BuyerLP-components/CategoriesNav";
 
 
 interface whatWeOfferList {
@@ -95,10 +96,10 @@ const FAQs = [
 
         {/* Dark Overlay for Readability */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="hidden absolute top-0 z-10 sticky">
+        {/*<div className="hidden absolute top-0 z-10 sticky">
             <Navbar />
               
-            </div>
+            </div>*/}
       </div>
 
 
@@ -106,7 +107,7 @@ const FAQs = [
       <div className="relative text-white px-4  md:gap-4  ">
         {/* Main Heading */}
         <div className="text-4xl md:text-6xl font-extrabold font-bold">
-          <Typewriter 
+          {/*<Typewriter 
             options={{
               strings: [
                 "Grow Your Logistics",
@@ -135,8 +136,8 @@ const FAQs = [
             }}
 
 
-          />
-          {/*Grow Your Logistics <br className="hidden md:flex"/> Business with Us*/}
+          />*/}
+          Grow Your Logistics <br className="hidden md:flex"/> Business with Us
         </div>
         
         {/* Subtext */}
@@ -180,6 +181,9 @@ const FAQs = [
             ))}
         </div>
       </div>
+    </section>
+    <section>
+      <CategoriesNav />
     </section>
     {/*how it work section*/}
     <section className="my-12">

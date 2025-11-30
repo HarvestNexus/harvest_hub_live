@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/General-landing-page/index";
 import Logistics from "./pages/Logistics-landing-page/Logistics"
 import StorageFacilities from "./pages/Logistics-landing-page/StorageFacilities"
-
 import Farmer from "./pages/Farmer-landing-page/FarmerPage"
+
+import RoleSelection from "./pages/signup/RoleSelection";
+import SignUpForm from "./pages/signup/SignUpForm";
 
 
 
@@ -17,6 +19,8 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />  
 
 
+        <Route path="/signup" element={<RoleSelection />} />
+        <Route path="/signup/form" element={<SignUpForm />} />
         <Route path="/service1" element={<Logistics />} />  
         <Route path="/service2" element={<StorageFacilities />} />  
 
