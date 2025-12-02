@@ -3,8 +3,8 @@ import { useAuthStore } from '../../../store/authStore';
 import InputField from '../../../components/common/InputField';
 import { Button } from '../../../components/common/Button';
 import { useNavigate } from 'react-router-dom';
-import googleIcon from 'src/assets/google-icon.svg';
-import appleIcon from 'src/assets/apple-icon.svg';
+import googleIcon from '../../../assets/google-icon.svg';
+import appleIcon from '../../../assets/apple-icon.svg';
 
 export const Content: React.FC = () => {
   const navigate = useNavigate();
@@ -82,7 +82,7 @@ export const Content: React.FC = () => {
           </div>
           <div className="flex items-center justify-center space-x-4 lg:space-x-7 mt-12">
             <button className='rounded-[10px] p-3 flex items-center gap-2 w-1/2 border border-lightgrey justify-center'>
-              <img src={appleIcon} alt="apple-icon" className="size-6"/>
+              <img src={appleIcon} alt="apple-icon" className="size-6" />
               <span>Apple</span>
             </button>
             <button className='rounded-[10px] p-3 flex items-center gap-2 w-1/2 border border-lightgrey justify-center'>
