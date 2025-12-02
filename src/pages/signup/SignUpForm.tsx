@@ -74,7 +74,7 @@ const SignUpForm: React.FC = () => {
       {/* LEFT IMAGE */}
       <div className="md:w-1/2 w-full md:h-screen relative">
         <img
-          src="/images/signup/farm-bg.avif"
+          src="/images/signup/buyer_signup.avif"
           alt="Farm"
           className="w-full h-full object-cover"
         />
@@ -85,8 +85,8 @@ const SignUpForm: React.FC = () => {
       </div>
 
       {/* FORM SECTION */}
-      <div className="md:w-1/2 w-full px-10 py-10 grid gap-3 ">
-        <h2 className="text-3xl font-bold mb-4 font-nunito">Create Your Account</h2>
+      <div className="md:w-1/2 w-full px-10 py-10 grid gap-3 items-center justify-center">
+        <h2 className="text-4xl font-bold mb-4 font-nunito">Create Your Account</h2>
         <p className="text-gray-600 mb-6 font-nunito">
           Sign up to start storing and selling directly to buyers.
         </p>
@@ -108,33 +108,9 @@ const SignUpForm: React.FC = () => {
             error={errors.emailOrPhone}
           />
 
-          <Input
-            label="Farm Location"
-            name="farmLocation"
-            value={form.farmLocation}
-            onChange={handleChange}
-            error={errors.farmLocation}
-          />
+     
 
-          <div className="mb-4 ">
-            <label className="font-semibold text-sm mb-1">Crop Type</label>
-            <select
-              name="cropType"
-              value={form.cropType}
-              onChange={handleChange}
-              className={`border rounded-md px-3 py-2 w-full ${
-                errors.cropType ? "border-red-500" : "border-gray-300"
-              }`}
-            >
-              <option value="">Select crop type</option>
-              <option value="Maize">Maize</option>
-              <option value="Yam">Yam</option>
-              <option value="Rice">Rice</option>
-            </select>
-            {errors.cropType && (
-              <p className="text-red-500 text-xs mt-1">{errors.cropType}</p>
-            )}
-          </div>
+          
 
           <Input
             label="Password"
@@ -155,6 +131,23 @@ const SignUpForm: React.FC = () => {
            <div className="relative flex items-center justify-center mt-3 mb-3">
         <span className="bg-white p-3 z-30">Or login with</span>
         <span className="absolute w-full border m-auto "></span>
+      </div>
+      {/*Apple and Google Auth btn container div*/}
+      <div className="w-full  grid grid-cols-2 items-center justify-between gap-3">
+        <button className="flex flex-row border rounded-md items-center justify-center gap-3 p-2">
+          <div className="w-7 h-7">
+          <img src="/images/signup/apple.png" className="w-full h-full object-contain" />
+            
+          </div>
+          <span>Apple</span>
+        </button>
+        <button className="flex flex-row gap-3 border rounded-md items-center justify-center gap-3 p-2">
+          <div className="w-7 h-7">
+          <img src="/images/signup/google.png" className="w-full h-full object-contain" />
+            
+          </div>
+          <span>Google</span>
+        </button>
       </div>
         </div>
        

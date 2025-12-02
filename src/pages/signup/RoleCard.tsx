@@ -8,7 +8,7 @@ interface RoleCardProps {
 const RoleCard: React.FC<RoleCardProps> = ({ label, onClick }) => (
   <button
     onClick={onClick}
-    className="border w-full py-3 rounded-md hover:bg-gray-100 transition font-medium w-full"
+    className="border w-full py-3 rounded-md hover:bg-gray-100 transition font-medium "
   >
     {label}
   </button>
