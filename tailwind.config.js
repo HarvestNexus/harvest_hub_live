@@ -9,11 +9,14 @@ const config = {
     extend: {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
-        noto: ['"Noto Sans"', 'sans-serif'], // ✅ Added Noto Sans
+        noto: ['"Noto Sans"', 'sans-serif'],
+        nunito: ['Nunito', 'sans-serif'],
       },
       colors: {
         primary: "#00a117",
         secondary: "#f2f2f2",
+        darkgrey: "#1A1A1A",
+        lightgrey: "#646464",
         brand: {
           DEFAULT: "#00a216",
           light: "#33cc5c",
