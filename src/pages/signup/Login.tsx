@@ -4,22 +4,19 @@ import { useSearchParams } from "react-router-dom";
 import { validateEmail, validatePhone, isEmpty } from "./validators";
 
 interface FormState {
-  fullName: string;
+
   emailOrPhone: string;
-  farmLocation: string;
-  cropType: string;
   password: string;
+  rememberMe: boolean;
 }
 
-const Login: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const [params] = useSearchParams();
   const selectedRole = params.get("role") || "User";
 
   const [form, setForm] = useState<FormState>({
     fullName: "",
-    emailOrPhone: "",
-    farmLocation: "",
-    cropType: "",
+    rememberMe: false,
     password: "",
   });
 
@@ -86,13 +83,13 @@ const Login: React.FC = () => {
 
       {/* FORM SECTION */}
       <div className="md:w-1/2 w-full px-10 py-10 grid gap-3 items-center justify-center">
-        <h2 className="text-4xl font-bold mb-4 font-nunito">Create Your Account</h2>
+        <h2 className="text-4xl font-bold mb-4 font-nunito">Login</h2>
         <p className="text-gray-600 mb-6 font-nunito">
-          Sign up to get fresh produce directly from farmers.
+          Welcome back! Please login to your account.
         </p>
 
         <div className="max-w-md font-nunito flex flex-col gap-3">
-
+          
 
           <Input
             label="Email or Phone Number"
@@ -114,7 +111,16 @@ const Login: React.FC = () => {
             onChange={handleChange}
             error={errors.password}
           />
-         
+
+        {/*Remember me - Forgotten password*/}
+           <div className="flex flex-row w-full items-center justify-between font-nunito">
+            <div className="flex flex-row gap-2 items-center">
+              <input type="checkbox"  />
+              <p>Remember me</p>
+            </div>
+            <button className="text-green-600">Forgot password?</button>
+          </div>
+
           <button
             onClick={handleSubmit}
             disabled={loading}
@@ -126,6 +132,7 @@ const Login: React.FC = () => {
         <span className="bg-white p-3 z-30">Or login with</span>
         <span className="absolute w-full border m-auto "></span>
       </div>
+
       {/*Apple and Google Auth btn container div*/}
       <div className="w-full  grid grid-cols-2 items-center justify-between gap-3">
         <button className="flex flex-row border rounded-md items-center justify-center gap-3 p-2">
@@ -143,9 +150,11 @@ const Login: React.FC = () => {
           <span>Google</span>
         </button>
       </div>
+      {/*Dont have an account?*/}
       <div className="font-nunito flex flex-row items-center justify-center gap-2">
-        <p className="flex flex-row ">Already have an account?</p> <a href="/login" className="text-green-600">Login</a>
+        <p className="flex flex-row ">Don't have an account?</p> <a href="/signup/form" className="text-green-600">Sign Up</a>
       </div>
+
         </div>
        
       </div>
@@ -154,4 +163,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default SignUpForm;

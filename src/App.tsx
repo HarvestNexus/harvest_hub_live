@@ -11,6 +11,7 @@ import RoleSelection from "./pages/signup/RoleSelection";
 import SignUpForm from "./pages/signup/SignUpForm";
 import Verification from "./pages/signup/Verification";
 import Sucessful from "./pages/signup/Sucessful"
+import Login from "./pages/signup/Login"
 
 
 const App: React.FC = () => {
@@ -22,6 +23,7 @@ const App: React.FC = () => {
 
         <Route path="/signup" element={<RoleSelection />} />
         <Route path="/signup/form" element={<SignUpForm />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/verifiy-email" element={<Verification />} />
         <Route path="/successful-login" element={<Sucessful/>} />
         <Route path="/service1" element={<Logistics />} />  
