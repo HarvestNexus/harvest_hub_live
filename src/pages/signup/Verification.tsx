@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "./Input";
 import { useSearchParams } from "react-router-dom";
 import { validateEmail, validatePhone, isEmpty } from "./validators";
+import {Mail} from "lucide-react"
 
 import Sucessful from './Sucessful'
 
