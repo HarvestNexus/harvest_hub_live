@@ -157,8 +157,17 @@ const CheckoutFailed: React.FC = () => {
 
             <main className="flex justify-center px-4 py-24">
                 <div className="max-w-lg text-center">
-                    <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-red-400 text-3xl text-red-400">
-                        !
+                    <div className="mx-auto mb-6 relative h-20 w-20">
+                        <div
+                            className="absolute inset-0 flex items-center justify-center text-3xl text-red-400"
+                            style={{
+                                clipPath: 'polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)',
+                                border: '2px solid rgb(248 113 113)',
+                                backgroundColor: 'white'
+                            }}
+                        >
+                            !
+                        </div>
                     </div>
 
                     <h2 className="mb-3 text-2xl font-semibold text-gray-900">
