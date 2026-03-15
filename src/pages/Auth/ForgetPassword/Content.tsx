@@ -3,49 +3,81 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../../store/authStore';
 import InputField from '../../../components/common/InputField';
 import { Button } from '../../../components/common/Button';
+import { AuthHeader } from '../../../components/common/AuthHeader';
+import { AuthFooter } from '../../../components/common/AuthFooter';
+import { AuthError } from '../../../components/common/AuthError';
 
 export const Content: React.FC = () => {
     const navigate = useNavigate();
     const [emailOrPhone, setEmailOrPhone] = useState('');
+    const [error_field, setErrorField] = useState('');
 
     const { forgotPassword, isLoading, error, clearError } = useAuthStore();
+
+    const validate = () => {
+        let isValid = true;
+        if (!emailOrPhone) {
+            setErrorField('Oops! Please enter a valid email addres');
+            isValid = false;
+        } else {
+            const isEmail = /\S+@\S+\.\S+/.test(emailOrPhone);
+            const isPhone = /^\+?[\d\s-]{10,}$/.test(emailOrPhone);
+            if (!isEmail && !isPhone) {
+                setErrorField('Oops! Please enter a valid email addres');
+                isValid = false;
+            }
+        }
+        return isValid;
+    };
+
+    const handleBlur = () => {
+        validate();
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         clearError();
-        await forgotPassword({ emailOrPhone });
-        // Navigate to verify code with email parameter
-        navigate('/verify-code', {
-            state: {
-                emailOrPhone,
-                userType: 'Farmer',
-                title: 'Reset Your Password',
-                description: 'Please enter the 5-digit code we sent to reset your password',
-                redirectTo: '/reset-password',
-                isReset: true
-            }
-        });
+        setErrorField('');
+        
+        if (!validate()) return;
+
+        const success = await forgotPassword({ emailOrPhone });
+        if (success) {
+            // Navigate to verify code with email parameter
+            navigate('/verify-code', {
+                state: {
+                    emailOrPhone,
+                    userType: 'Farmer',
+                    title: 'Reset Your Password',
+                    description: 'Please enter the 5-digit code we sent to reset your password',
+                    redirectTo: '/reset-password',
+                    isReset: true
+                }
+            });
+        }
     };
 
     return (
-        <div className="h-full w-full p-4 lg:p-6">
-            <div>
-                <h1 className='leading-160 text-darkgrey text-[45px] text-center'>Forget Password</h1>
-                <p className='text-center text-lightgrey lg:text-base leading-160'>Enter your email or phone number to reset your password</p>
-            </div>
-            <div className="w-full space-y-8 mt-4 lg:mt-[54px]">
-                <form onSubmit={handleSubmit} className='space-y-6 max-w-lg mx-auto'>
-                    {error && (
-                        <div className="mb-4 bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
-                            {error}
-                        </div>
-                    )}
+        <div className="md:h-full w-full">
+            <AuthHeader 
+                title="Forget Password" 
+                subtitle="Enter your email or phone number to reset your password" 
+            />
+            <div className="w-full space-y-8 mt-4">
+                <form onSubmit={handleSubmit} className='space-y-6'>
+                    <AuthError message={error || ''} />
 
                     <InputField
                         label="Email or Phone Number"
                         value={emailOrPhone}
-                        onChange={setEmailOrPhone}
+                        onChange={(val) => {
+                            setEmailOrPhone(val);
+                            if (error_field) setErrorField('');
+                            if (error) clearError();
+                        }}
+                        onBlur={handleBlur}
                         placeholder="Enter your email or phone number"
+                        error={error_field}
                         required
                     />
 
@@ -54,16 +86,11 @@ export const Content: React.FC = () => {
                     </Button>
                 </form>
 
-                <div className="text-center space-x-1.5 flex items-center justify-center text-sm">
-                    <span className='text-lightgrey'>Remember your password?</span>
-                    <button
-                        type="button"
-                        onClick={() => navigate('/login')}
-                        className="text-green-600 hover:text-green-500 font-medium"
-                    >
-                        Login
-                    </button>
-                </div>
+                <AuthFooter 
+                    message="Remember your password?" 
+                    actionText="Login"
+                    onActionClick={() => navigate('/login')}
+                />
             </div>
         </div>
     );

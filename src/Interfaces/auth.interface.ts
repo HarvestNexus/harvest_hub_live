@@ -3,7 +3,7 @@ export interface User {
   email: string;
   phoneNumber?: string;
   fullName: string;
-  role: 'farmer' | 'buyer' | 'logistics';
+  role: 'farmer' | 'buyer' | 'logistics' | 'facility';
 }
 
 export interface Farmer extends User {
@@ -16,6 +16,12 @@ export interface Logistics extends User {
   vehicleType: string;
   vehicleCapacity: string;
   serviceArea: string;
+}
+
+export interface StorageFacility extends User {
+  facilityName: string;
+  facilityLocation: string;
+  facilityCapacity: string;
 }
 
 export interface AuthState {
@@ -34,7 +40,7 @@ export interface SignupCredentials {
   fullName: string;
   emailOrPhone: string;
   password: string;
-  role: 'farmer' | 'buyer' | 'logistics';
+  role: 'farmer' | 'buyer' | 'logistics' | 'facility';
   // Role-specific fields (optional in base type)
   farmLocation?: string;
   cropType?: string;
@@ -42,6 +48,9 @@ export interface SignupCredentials {
   vehicleType?: string;
   vehicleCapacity?: string;
   serviceArea?: string;
+  facilityName?: string;
+  facilityLocation?: string;
+  facilityCapacity?: string;
 }
 
 export interface ForgotPasswordData {
@@ -49,14 +58,16 @@ export interface ForgotPasswordData {
 }
 
 export interface ResetPasswordData {
-  newPassword: string;
-  confirmPassword: string;
+  emailOrPhone: string;
+  password: string;
 }
 
 export interface VerifyCodeData {
-  otp: string;
+  emailOrPhone: string;
+  code: string;
 }
 
 export interface VerifyResetOtpData {
+  emailOrPhone: string;
   otp: string;
 }

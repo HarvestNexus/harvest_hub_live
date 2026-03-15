@@ -1,0 +1,58 @@
+error TS2468: Cannot find global value 'Promise'.
+node_modules/@types/babel__template/index.d.ts(11,28): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/@types/babel__traverse/index.d.ts(63,15): error TS2583: Cannot find name 'WeakMap'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/@types/babel__traverse/index.d.ts(63,31): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/@types/babel__traverse/index.d.ts(64,16): error TS2583: Cannot find name 'WeakMap'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/@types/babel__traverse/index.d.ts(90,13): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/@types/react/index.d.ts(47,7): error TS2304: Cannot find name 'Iterable'.
+node_modules/@types/react/index.d.ts(427,10): error TS2456: Type alias 'ReactNode' circularly references itself.
+node_modules/@types/react/index.d.ts(432,11): error TS2304: Cannot find name 'Iterable'.
+node_modules/axios/index.d.ts(79,4): error TS2585: 'Symbol' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
+node_modules/axios/index.d.ts(79,24): error TS2304: Cannot find name 'IterableIterator'.
+node_modules/react-router-dom/dist/index.d.ts(1,69): error TS2307: Cannot find module 'react-router/dom' or its corresponding type declarations.
+  There are types at 'C:/Users/USER/project/harvest_hub_live/node_modules/react-router/dist/development/dom-export.d.mts', but this result could not be resolved under your current 'moduleResolution' setting. Consider updating to 'node16', 'nodenext', or 'bundler'.
+node_modules/react-router/dist/development/index-react-server-client-Bi_fx8qz.d.ts(985,81): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/index-react-server-client-Bi_fx8qz.d.ts(986,284): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/index.d.ts(6,8): error TS1259: Module '"C:/Users/USER/project/harvest_hub_live/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+node_modules/react-router/dist/development/index.d.ts(11,35): error TS2307: Cannot find module 'node:async_hooks' or its corresponding type declarations.
+node_modules/react-router/dist/development/index.d.ts(1625,43): error TS2304: Cannot find name 'Iterable'.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(292,32): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(297,5): error TS18028: Private identifiers are only available when targeting ECMAScript 2015 and higher.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(983,32): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1041,15): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1045,15): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1406,30): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1571,6): error TS2456: Type alias 'Serializable' circularly references itself.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1573,44): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1573,78): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1615,214): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1615,238): error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1615,282): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+node_modules/react-router/dist/development/routeModules-BR2FO0ix.d.ts(1615,297): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/apiService/axiosClient.ts(4,22): error TS1343: The 'import.meta' meta-property is only allowed when the '--module' option is 'es2020', 'es2022', 'esnext', 'system', 'node16', 'node18', or 'nodenext'.
+src/apiService/axiosClient.ts(4,34): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/apiService/axiosClient.ts(27,55): error TS2550: Property 'includes' does not exist on type 'string'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+src/apiService/axiosClient.ts(36,14): error TS2585: 'Promise' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
+src/pages/Auth/Login/Content.tsx(1,8): error TS1259: Module '"C:/Users/USER/project/harvest_hub_live/node_modules/@types/react/index"' can only be default-imported using the 'esModuleInterop' flag
+src/pages/Auth/Login/Content.tsx(3,24): error TS6142: Module '../../../components/common/InputField' was resolved to 'C:/Users/USER/project/harvest_hub_live/src/components/common/InputField.tsx', but '--jsx' is not set.
+src/pages/Auth/Login/Content.tsx(4,24): error TS6142: Module '../../../components/common/Button' was resolved to 'C:/Users/USER/project/harvest_hub_live/src/components/common/Button.tsx', but '--jsx' is not set.
+src/pages/Auth/Login/Content.tsx(5,35): error TS6142: Module '../../../components/common/SocialAuthButtons' was resolved to 'C:/Users/USER/project/harvest_hub_live/src/components/common/SocialAuthButtons.tsx', but '--jsx' is not set.
+src/pages/Auth/Login/Content.tsx(6,28): error TS6142: Module '../../../components/common/AuthFooter' was resolved to 'C:/Users/USER/project/harvest_hub_live/src/components/common/AuthFooter.tsx', but '--jsx' is not set.
+src/pages/Auth/Login/Content.tsx(7,28): error TS6142: Module '../../../components/common/AuthHeader' was resolved to 'C:/Users/USER/project/harvest_hub_live/src/components/common/AuthHeader.tsx', but '--jsx' is not set.
+src/pages/Auth/Login/Content.tsx(54,24): error TS2705: An async function or method in ES5 requires the 'Promise' constructor.  Make sure you have a declaration for the 'Promise' constructor or include 'ES2015' in your '--lib' option.
+src/pages/Auth/Login/Content.tsx(73,5): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(74,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(78,7): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(79,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(81,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(86,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(97,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(108,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(109,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(110,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(111,15): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(113,13): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(122,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(127,9): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(128,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+src/pages/Auth/Login/Content.tsx(130,11): error TS17004: Cannot use JSX unless the '--jsx' flag is provided.

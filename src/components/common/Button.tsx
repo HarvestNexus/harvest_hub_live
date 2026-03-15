@@ -7,6 +7,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   loading?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -16,11 +17,13 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   loading = false,
   disabled = false,
+  className = '',
 }) => {
-  const baseClasses = "w-full py-3 px-4 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors";
+  const baseClasses = "w-full py-2.5 px-4 rounded-lg text-base focus:outline-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed";
+  
   const variants = {
-    primary: "bg-green-600 hover:bg-green-700 text-white focus:ring-green-500",
-    secondary: "bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500"
+    primary: "bg-btngreen hover:bg-green-700 text-white",
+    secondary: "bg-white border border-gray-200 text-gray-600 hover:bg-gray-50"
   };
 
   return (
@@ -28,11 +31,14 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${baseClasses} ${variants[variant]} ${
-        disabled ? 'opacity-50 cursor-not-allowed' : ''
-      }`}
+      className={`${baseClasses} ${variants[variant]} ${className}`}
     >
-      {loading ? 'Loading...' : children}
+      {loading ? (
+        <div className="flex items-center justify-center gap-2">
+          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          <span>Processing...</span>
+        </div>
+      ) : children}
     </button>
   );
 };

@@ -4,11 +4,11 @@ import { LoginApi, signupApi, forgotPasswordApi, VerifyCodeApi, VerifyResetOtpAp
 import { setAuthToken, setRefreshToken, removeAuthTokens } from "../config";
 
 interface AuthStore extends AuthState {
-  login: (credentials: LoginCredentials) => Promise<void>;
-  signup: (credentials: SignupCredentials) => Promise<void>;
+  login: (credentials: LoginCredentials) => Promise<boolean>;
+  signup: (credentials: SignupCredentials) => Promise<boolean>;
   logout: () => void;
-  forgotPassword: (data: ForgotPasswordData) => Promise<void>;
-  resetPassword: (data: ResetPasswordData) => Promise<void>;
+  forgotPassword: (data: ForgotPasswordData) => Promise<boolean>;
+  resetPassword: (data: ResetPasswordData) => Promise<boolean>;
   verifyCode: (data: VerifyCodeData) => Promise<boolean>;
   verifyResetOtp: (data: VerifyResetOtpData) => Promise<boolean>;
   clearError: () => void;
@@ -29,9 +29,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
       if (data.refresh) setRefreshToken(data.refresh);
 
       set({ user: data.user || data, isAuthenticated: true, isLoading: false });
+      return true;
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || error.message || 'Login failed';
       set({ error: errorMessage, isLoading: false });
+      return false;
     }
   },
 
@@ -44,9 +46,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
       if (data.refresh) setRefreshToken(data.refresh);
 
       set({ user: data.user || data, isAuthenticated: true, isLoading: false });
+      return true;
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || error.message || 'Signup failed';
       set({ error: errorMessage, isLoading: false });
+      return false;
     }
   },
 
@@ -60,9 +64,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
     try {
       await forgotPasswordApi(data);
       set({ isLoading: false });
+      return true;
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || error.message || 'Failed to send reset code';
       set({ error: errorMessage, isLoading: false });
+      return false;
     }
   },
 
@@ -97,9 +103,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
     try {
       await resetPasswordApi(data);
       set({ isLoading: false });
+      return true;
     } catch (error: any) {
       const errorMessage = error.response?.data?.message || error.message || 'Failed to reset password';
       set({ error: errorMessage, isLoading: false });
+      return false;
     }
   },
 

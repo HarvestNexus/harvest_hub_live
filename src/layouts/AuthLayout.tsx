@@ -1,16 +1,30 @@
 import { AuthBanner } from "../components/common/AuthBanner";
+import Logo from '../assets/logo.jpg';
 
-const AuthLayout = ({ children }: any) => {
+interface AuthLayoutProps {
+  children: React.ReactNode;
+  onBack?: () => void;
+  backLabel?: string;
+}
 
+const AuthLayout: React.FC<AuthLayoutProps> = ({ 
+  children, 
+  onBack, 
+  backLabel 
+}) => {
   return (
-    <section className="h-screen w-full bg-white p-4 lg:p-6">  
+    <section className="h-screen w-full bg-white p-4 lg:p-6 overflow-hidden">  
       <div className="flex item-start w-full lg:h-full">
-        <div className="hidden lg:h-full lg:inline lg:w-1/2">
-            <AuthBanner
-            />
+        <div className="w-full lg:w-1/2 h-full overflow-y-auto custom-scrollbar">
+            <section className="min-h-full px-4 md:px-8 lg:px-24 py-4">
+              <img src={Logo} alt="Harvest Nexus" className='w-32' />
+              <div>
+                {children}
+              </div>
+            </section>
         </div>
-        <div className="w-full lg:w-1/2 h-auto lg:h-full">
-            <section className="h-full pt-16 lg:pt-0">{children}</section>
+        <div className="hidden lg:block lg:w-1/2 h-full">
+          <AuthBanner onBack={onBack} backLabel={backLabel} />
         </div>
       </div>    
     </section>

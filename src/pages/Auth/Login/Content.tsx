@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useAuthStore } from '../../../store/authStore';
 import InputField from '../../../components/common/InputField';
 import { Button } from '../../../components/common/Button';
+import { SocialAuthButtons } from '../../../components/common/SocialAuthButtons';
+import { AuthFooter } from '../../../components/common/AuthFooter';
+import { AuthHeader } from '../../../components/common/AuthHeader';
+import { AuthError } from '../../../components/common/AuthError';
 import { useNavigate } from 'react-router-dom';
-import googleIcon from '../../../assets/google-icon.svg';
-import appleIcon from '../../../assets/apple-icon.svg';
 
 export const Content: React.FC = () => {
   const navigate = useNavigate();
@@ -12,40 +14,80 @@ export const Content: React.FC = () => {
     emailOrPhone: '',
     password: '',
   });
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   const { login, isLoading, error, clearError } = useAuthStore();
+
+  const validateField = (field: string, value: string) => {
+    let errorMsg = '';
+    if (field === 'emailOrPhone') {
+      if (!value) {
+        errorMsg = 'Email or Phone Number is required';
+      } else {
+        const isEmail = /\S+@\S+\.\S+/.test(value);
+        const isPhone = /^\+?[\d\s-]{10,}$/.test(value);
+        if (!isEmail && !isPhone) {
+          errorMsg = 'Please enter a valid email or phone number';
+        }
+      }
+    } else if (field === 'password') {
+      if (!value) errorMsg = 'Password is required';
+    }
+    return errorMsg;
+  };
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    Object.keys(credentials).forEach(key => {
+      const errorMsg = validateField(key, (credentials as any)[key]);
+      if (errorMsg) newErrors[key] = errorMsg;
+    });
+
+    setFieldErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleBlur = (field: string) => {
+    const errorMsg = validateField(field, (credentials as any)[field]);
+    setFieldErrors(prev => ({ ...prev, [field]: errorMsg }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     clearError();
-    await login(credentials);
+    setFieldErrors({});
+
+    if (validate()) {
+      await login(credentials);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
     setCredentials(prev => ({ ...prev, [field]: value }));
+    if (fieldErrors[field]) {
+      setFieldErrors(prev => ({ ...prev, [field]: '' }));
+    }
     if (error) clearError();
   };
 
   return (
-    <div className="h-full w-full p-4 lg:p-6">
-      <div>
-        <h1 className='leading-160 text-darkgrey text-[45px] text-center'>Login</h1>
-        <p className='text-center text-lightgrey lg:text-lg leading-160'>Welcome back! Please login to your account.</p>
-      </div>
-      <div className="w-full space-y-8 mt-4 lg:mt-[54px]">
-        <form className="mt-8 space-y-6 max-w-lg mx-auto" onSubmit={handleSubmit}>
-          {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded">
-              {error}
-            </div>
-          )}
+    <div className="md:h-full w-full space-y-8">
+      <AuthHeader 
+        title="Welcome Back!" 
+        subtitle="Please login into your account to continue where you left off."
+      />
+      <div className="w-full">
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <AuthError message={error || ''} />
 
           <InputField
             label="Email or Phone Number"
             type="text"
             value={credentials.emailOrPhone}
             onChange={(value) => handleChange('emailOrPhone', value)}
+            onBlur={() => handleBlur('emailOrPhone')}
             placeholder="Enter your email or phone number"
+            error={fieldErrors.emailOrPhone}
             required
           />
 
@@ -54,55 +96,43 @@ export const Content: React.FC = () => {
             type="password"
             value={credentials.password}
             onChange={(value) => handleChange('password', value)}
+            onBlur={() => handleBlur('password')}
             placeholder="Enter your password"
+            error={fieldErrors.password}
             required
           />
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-1">
-              <input type="checkbox" name="remember" id="remember" />
-              <label htmlFor="remember" className="text-sm text-lightgrey">Remember me</label>
-            </div>
-            <button
-              type="button"
-              className="text-sm text-green-600 hover:text-green-500"
-              onClick={() => navigate('/forget-password')}
-            >
-              Forgot your password?
-            </button>
-          </div>
-
-          <Button type="submit" loading={isLoading}>
-            Sign In
-          </Button>
-          <div className="flex items-center justify-center space-x-4">
-            <hr className="border border-lightgrey flex-grow" />
-            <p className="text-lightgrey w-max">Or login with</p>
-            <hr className="border border-lightgrey flex-grow" />
-          </div>
-          <div className="flex items-center justify-center space-x-4 lg:space-x-7 mt-12">
-            <button className='rounded-[10px] p-3 flex items-center gap-2 w-1/2 border border-lightgrey justify-center'>
-              <img src={appleIcon} alt="apple-icon" className="size-6" />
-              <span>Apple</span>
-            </button>
-            <button className='rounded-[10px] p-3 flex items-center gap-2 w-1/2 border border-lightgrey justify-center'>
-              <img src={googleIcon} alt="google-icon" className="size-6" />
-              <span>Google</span>
-            </button>
-          </div>
-          <div className="text-center">
-            <span className="text-sm text-gray-600">
-              Don't have an account?{' '}
+          <div className='space-y-1.5'>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-1">
+                <input type="checkbox" name="remember" id="remember" />
+                <label htmlFor="remember" className="text-sm text-lightgrey">Remember me</label>
+              </div>
               <button
                 type="button"
-                className="text-green-600 hover:text-green-500 font-medium"
-                onClick={() => navigate('/register')}
+                className="text-sm text-green-600 hover:text-green-500"
+                onClick={() => navigate('/forget-password')}
               >
-                Sign up
+                Forgot your password?
               </button>
-            </span>
+            </div>
+
+            <Button type="submit" loading={isLoading}>
+              Sign In
+            </Button>
           </div>
+          
         </form>
+
+        <div className="max-w-lg mx-auto mt-6">
+          <SocialAuthButtons googleLabel="Google" appleLabel="Apple" />
+
+          <AuthFooter 
+            message="Don't have an account?"
+            actionText="Sign up"
+            onActionClick={() => navigate('/signup')}
+            className="mt-6"
+          />
+        </div>
       </div>
     </div>
   );

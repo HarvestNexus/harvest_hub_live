@@ -3,7 +3,7 @@ import { Content } from "./Content";
 
 const ForgetPassword = () => {
   return (
-    <AuthLayout pageTitle="Forget Password">
+    <AuthLayout >
       <Content />
     </AuthLayout>
   );

@@ -16,6 +16,7 @@ const config = {
         primary: "#00a117",
         secondary: "#f2f2f2",
         darkgrey: "#1A1A1A",
+        btngreen: "#208836",
         lightgrey: "#646464",
         brand: {
           DEFAULT: "#00a216",
